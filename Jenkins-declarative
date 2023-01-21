@@ -6,21 +6,21 @@ agent any{
   
       stege{
       
+          steps("git checkout"){
+                git branch: 'main', credentialsId: 'declarative', url: 'https://github.com/boorlasiva/Declarativepipeline.git'
+          
+          }
+      }
+      stege("mvn build"){
+      
           steps{
-          
-          
-          
+              
+                sh "mvn clean package"
+                sh "mv target/*.war  target/myweb.war"
           }
       
       }
-  
   }
 
-
-
-
 }
-
-
-
 }
